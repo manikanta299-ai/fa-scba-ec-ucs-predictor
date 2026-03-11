@@ -59,12 +59,12 @@ with col1:
     PI = st.number_input("Plasticity Index (PI)",value=15.0)
 
 with col2:
-    FSI = st.number_input("Free Swell Index (FSI)",value=40.0)
+    FSI = st.number_input("Free Swell Index (FSI)",value=30.0)
     MDUW = st.number_input("Maximum Dry Unit Weight",value=16.0)
 
 with col3:
     OMC = st.number_input("Optimum Moisture Content (%)",value=20.0)
-    UPV = st.number_input("Ultrasonic Pulse Velocity",value=2000.0)
+    UPV = st.number_input("Ultrasonic Pulse Velocity",value=800.0)
 
 CuringDays = st.number_input("Curing Days",value=28)
 
@@ -127,3 +127,4 @@ if st.button("Predict UCS"):
             "UCS_prediction_report.csv",
             "text/csv"
         )
+
