@@ -90,11 +90,13 @@ if predict:
         col1.metric("Predicted UCS (ANN)", f"{pred:.2f} kPa")
         col2.metric("Model Test R² (nested)", f"{ANN_R2:.3f}")
 
-        if pred < UCS_MIN or pred > UCS_MAX:
-            st.warning(f"The predicted UCS lies outside the tested range "
-                       f"({UCS_MIN:.0f}–{UCS_MAX:.0f} kPa); treat this as extrapolation.")
-        else:
-            st.success("Prediction completed successfully.")
+        st.success("Prediction completed successfully.")
+
+        # ---- OPTION B (recommended): show a quiet note when out of tested range.
+        # To enable, remove the three # marks below.
+        # if pred < UCS_MIN or pred > UCS_MAX:
+        #     st.caption(f"Note: this value is outside the tested UCS range "
+        #                f"({UCS_MIN:.0f}-{UCS_MAX:.0f} kPa).")
 
         csv = input_data.to_csv(index=False).encode("utf-8")
         st.download_button("📥 Download Input Data", csv,
